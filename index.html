@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohan - Portfolio</title>
+    <!-- Google Fonts for the typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for the social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Global Styles Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505;
+            /* Deep black background */
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        /* Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* The faint red circle behind the logo */
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -12px;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 0, 34, 0.5);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff0022;
+        }
+
+        .contact-btn {
+            background-color: #ff0022;
+            color: #ffffff;
+            padding: 10px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #d4001d;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 75vh;
+            margin-top: 20px;
+        }
+
+        .hero-left {
+            flex: 1;
+            max-width: 550px;
+            z-index: 2;
+        }
+
+        .hero-left h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .hero-left h1 span {
+            font-family: 'Pacifico', cursive;
+            font-weight: 400;
+            font-size: 46px;
+            margin-left: 10px;
+        }
+
+        .hero-left h2 {
+            color: #ff0022;
+            font-size: 58px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .hero-left p {
+            font-size: 14px;
+            color: #d1d1d1;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            max-width: 90%;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            margin-bottom: 45px;
+        }
+
+        .social-section span {
+            font-size: 15px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            font-size: 20px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #ff0022;
+        }
+
+        /* Call to Action Buttons */
+        .buttons {
+            display: flex;
+            gap: 25px;
+        }
+
+        .btn {
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .btn-hire,
+        .btn-resume {
+            background-color: #ff0022;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 0, 34, 0.3);
+        }
+
+        .btn-hire:hover,
+        .btn-resume:hover {
+            background-color: #d4001d;
+            box-shadow: 0 4px 15px rgba(255, 0, 34, 0.5);
+        }
+
+        /* Hero Right (Graphics & Image) */
+        .hero-right {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+        }
+
+        /* Large bright red background circle */
+        .circle-main {
+            width: 450px;
+            height: 450px;
+            background-color: #ff0022;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            right: -20px;
+        }
+
+        /* Smaller dark red accent circles */
+        .circle-dark-top {
+            width: 250px;
+            height: 250px;
+            background-color: #4a000f;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            right: 50px;
+            z-index: 0;
+        }
+
+        .circle-dark-bottom {
+            width: 180px;
+            height: 180px;
+            background-color: #4a000f;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -60px;
+            left: -20px;
+            z-index: 0;
+        }
+
+        /* Image styling */
+        .hero-img {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-left: 160px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header / Navbar -->
+        <header>
+            <div class="logo">Sohan</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Projects</a></li>
+                </ul>
+            </nav>
+            <a href="mailto:banerjeesohan873@gmail.com" class="contact-btn">Contact</a>
+        </header>
+
+        <!-- Main Hero Section -->
+        <main class="hero">
+            <div class="hero-left">
+                <h1>Hi, I'm <span>Sohan Banerjee</span></h1>
+                <h2>Programmer</h2>
+                <h2>Web Developer</h2>
+                <p>A first-year B.Tech student at UEM Kolkata with a passion for programming in C and Python.</p>
+
+                <div class="social-section">
+                    <span>Find Me on</span>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/uchihx_sohan/?__pwa=1" target="_blank"><i class="fab fa-instagram"></i></a>
+
+                        <a href="https://www.linkedin.com/in/sohanbanerjee-offcl/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+
+                        <a href="https://github.com/Sohan010-dev" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a href="#" class="btn btn-hire">Hire me</a>
+                    <a href="#" class="btn btn-resume">Resume</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <!-- Background decorative circles -->
+                <div class="circle-dark-top"></div>
+                <div class="circle-dark-bottom"></div>
+                <div class="circle-main"></div>
+
+                <!-- Profile Image: Replace the URL below with a transparent PNG of yourself -->
+                <img src="bg1.png" alt="" class="hero-img">
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
